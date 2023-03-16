@@ -11,18 +11,18 @@ import { CoursesService } from "./courses.service";
     //     </li>
     // </ul>
     // `
+    // template: `
+    //     <button class="btn btn-primary" [class.active]="isActive">Save</button>
+    // `    
     template: `
-    <img [src]="imageUrl" />
-    <table>
-        <tr>
-            <td [attr.colspan]="colSpan"></td>
-        </tr>
-    </table>
+    <button [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button>
     `
 })
 
 @Injectable()
 export class CoursesComponent {
+
+    isActive = false;
     title = "List of courses.";
     imageUrl = "https://baconmockup.com/640/360"
     colSpan = 2;
