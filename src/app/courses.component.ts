@@ -14,8 +14,13 @@ import { CoursesService } from "./courses.service";
     // template: `
     //     <button class="btn btn-primary" [class.active]="isActive">Save</button>
     // `    
+    // template: `
+    // <button [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button>
+    // `
     template: `
-    <button [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button>
+    <div (click)="onDivClicked()">
+        <button (click)="onSave($event)">Save</button>
+    </div>
     `
 })
 
@@ -30,6 +35,15 @@ export class CoursesComponent {
 
     getTitle() {
         return this.title;
+    }
+
+    onSave($event: any) {
+        $event.StopPropagation();
+        console.log("👻", event)
+    }
+
+    onDivClicked() {
+        console.log("Div was clicked.")
     }
 
     constructor(service: CoursesService) {
