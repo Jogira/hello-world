@@ -3,19 +3,29 @@ import { CoursesService } from "./courses.service";
 
 @Component({
     selector: 'courses',
+    // template: `
+    // <h2>{{ title }}</h2>
+    // <ul>
+    //     <li *ngFor="let course of courses">
+    //         {{course}}
+    //     </li>
+    // </ul>
+    // `
     template: `
-    <h2>{{ title }}</h2>
-    <ul>
-        <li *ngFor="let course of courses">
-            {{course}}
-        </li>
-    </ul>
+    <img [src]="imageUrl" />
+    <table>
+        <tr>
+            <td [attr.colspan]="colSpan"></td>
+        </tr>
+    </table>
     `
 })
 
 @Injectable()
 export class CoursesComponent {
     title = "List of courses.";
+    imageUrl = "https://baconmockup.com/640/360"
+    colSpan = 2;
     courses;
 
     getTitle() {
