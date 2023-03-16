@@ -4,11 +4,14 @@ import { CoursesService } from "./courses.service";
 @Component({
     selector: 'courses',
     template: `
-    {{course.title | uppercase | lowercase}} <br/>
-    {{course.students | number}} <br/>
-    {{course.rating | number:'1.2-2'}} <br/>
-    {{course.price | currency}} <br/>
-    {{course.releaseDate | date:'shortDate'}} <br/>`
+    {{text | summary: 10}}
+    `
+    // template: `
+    // {{course.title | uppercase | lowercase}} <br/>
+    // {{course.students | number}} <br/>
+    // {{course.rating | number:'1.2-2'}} <br/>
+    // {{course.price | currency}} <br/>
+    // {{course.releaseDate | date:'shortDate'}} <br/>`
     // template: `
     // <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
     // `
@@ -38,6 +41,11 @@ import { CoursesService } from "./courses.service";
 
 @Injectable()
 export class CoursesComponent {
+    text =
+        `2 high severity vulnerabilities
+    
+    To address all issues, run:`
+
     course = {
         title: "Punpun",
         rating: 5.240,
