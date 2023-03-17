@@ -1,2 +1,12 @@
 <h1>Angular</h1>
-<favorite></favorite>
+<favorite [is-favorite]="post.isFavorite" (change)='onFavoriteChanged($event)'></favorite>
+
+<bootstrap-panel>
+    <ng-container class="heading">Heading</ng-container>
+    <div class="body">
+        <h1>Body</h1>
+        <p>Some content here...</p>
+    </div>
+</bootstrap-panel>
+
+<like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></like>
