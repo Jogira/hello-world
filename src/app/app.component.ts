@@ -13,6 +13,10 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
   ]
 })
 export class AppComponent {
+  viewMode = 'Something Else';
+
+
+
   courses = [23];
 
   tweet = {
