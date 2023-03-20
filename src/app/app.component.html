@@ -1,6 +1,13 @@
 <h1>Angular</h1>
 <favorite [is-favorite]="post.isFavorite" (change)='onFavoriteChanged($event)'></favorite>
 
+<input type="text" [appInputFormat]="'uppercase'">
+
+
+<span *ngIf="task.assignee">{{task.assignee.name}}</span>
+<br>
+<!-- <span>{{task.assignee?.name}}</span> -->
+
 <br>
 <br>
 <br>
@@ -73,7 +80,7 @@
 <div [ngSwitch]="viewMode">
     <div *ngSwitchCase="'map'">Map View Content</div>
     <div *ngSwitchCase="'list'">List View Content</div>
-    <div *ngSwitchDefault="'list'">Otherwise</div>
+    <div *ngSwitchDefault>Otherwise</div>
 </div>
 
 
@@ -97,7 +104,7 @@
 
 <button (click)="loadCourses()">Load Courses</button>
 <ul>
-    <li *ngFor="let course of loadCoursesArray; trackyBy: trackCourse">
+    <li *ngFor="let course of loadCoursesArray; trackBy: trackCourse">
         {{course.name}}
         <button (click)="onChange(course)">Change</button>
     </li>

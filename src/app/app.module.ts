@@ -13,6 +13,7 @@ import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
+import { InputFormatDirective } from './input-format.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { LikeComponent } from './like/like.component';
     FavoriteComponent,
     PanelComponent,
     LikeComponent,
+    InputFormatDirective,
   ],
   imports: [
     BrowserModule,
