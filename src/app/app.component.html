@@ -1,6 +1,28 @@
 <h1>Angular</h1>
 <favorite [is-favorite]="post.isFavorite" (change)='onFavoriteChanged($event)'></favorite>
 
+
+
+
+<br>
+<br>
+<br>
+<div *ngIf="courses.length > 0; else noCourses">
+    List:
+</div>
+<ng-template [ngIf]="courses.length > 0">
+    <div>
+        List of courses.
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="!(courses.length > 0)">
+    No courses
+</ng-template>
+<br>
+<br>
+<br>
+
 <bootstrap-panel>
     <ng-container class="heading">Heading</ng-container>
     <div class="body">
@@ -10,8 +32,6 @@
 </bootstrap-panel>
 
 <like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></like>
-
-
 
 
 <br>
@@ -57,5 +77,18 @@
         {{course.name}}
         <button (click)="onChange(course)">Change</button>
         <span *ngIf="isEven">(EVEN)</span>
+    </li>
+</ul>
+
+
+<br>
+<br>
+<br>
+
+<button (click)="loadCourses()">Load Courses</button>
+<ul>
+    <li *ngFor="let course of loadCoursesArray; trackyBy: trackCourse">
+        {{course.name}}
+        <button (click)="onChange(course)">Change</button>
     </li>
 </ul>

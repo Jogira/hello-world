@@ -13,13 +13,15 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
   ]
 })
 export class AppComponent {
+  loadCoursesArray: any;
+
+
   coursesObj =
     [
       { id: 1, name: 'courses1' },
       { id: 2, name: 'courses2' },
       { id: 3, name: 'courses3' }
     ];
-
 
 
 
@@ -53,6 +55,22 @@ export class AppComponent {
     // let index = this.coursesObj.indexOf(course);
     // this.coursesObj.splice(index, 1);
     course.name = 'UPDATED';
+  }
+
+  loadCourses() {
+    this.loadCoursesArray = [
+      { id: 1, name: 'courses1' },
+      { id: 2, name: 'courses2' },
+      { id: 3, name: 'courses3' }
+    ];
+  }
+
+  trackCourse(index: any, course: any) {
+    return course ? course.id : undefined;
+  }
+
+  onClick() {
+
   }
 }
 
