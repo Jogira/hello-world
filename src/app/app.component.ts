@@ -13,8 +13,17 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
   ]
 })
 export class AppComponent {
-  viewMode = 'Something Else';
+  coursesObj =
+    [
+      { id: 1, name: 'courses1' },
+      { id: 2, name: 'courses2' },
+      { id: 3, name: 'courses3' }
+    ];
 
+
+
+
+  viewMode = 'Something Else';
 
 
   courses = [23];
@@ -34,6 +43,16 @@ export class AppComponent {
 
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log("Favorite changed.", eventArgs)
+  }
+
+  onAdd() {
+    this.coursesObj.push({ id: 4, name: 'course4' });
+  }
+
+  onChange(course: any) {
+    // let index = this.coursesObj.indexOf(course);
+    // this.coursesObj.splice(index, 1);
+    course.name = 'UPDATED';
   }
 }
 

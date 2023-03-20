@@ -45,3 +45,17 @@
     <div *ngSwitchCase="'list'">List View Content</div>
     <div *ngSwitchDefault="'list'">Otherwise</div>
 </div>
+
+
+<br>
+<br>
+<br>
+
+<button (click)="onAdd()">Add</button>
+<ul>
+    <li *ngFor="let course of coursesObj; index as isEven">
+        {{course.name}}
+        <button (click)="onChange(course)">Change</button>
+        <span *ngIf="isEven">(EVEN)</span>
+    </li>
+</ul>
