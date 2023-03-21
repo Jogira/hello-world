@@ -10,4 +10,9 @@ export class ContactFormComponent {
   log(x: NgModel) {
     console.log(x)
   }
+
+  submit(f: any) {
+    console.log(f);
+    f.value;
+  }
 }
