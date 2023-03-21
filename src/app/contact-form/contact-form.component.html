@@ -32,6 +32,17 @@
             <option *ngFor="let method of contactMethods" [value]="method.id">{{ method.name }}</option>
         </select>
     </div>
+
+
+
+    <div *ngFor="let method of contactMethodRadio" class="radio">
+        <label for="">
+            <input ngModel type="radio" name="contactMethodRadio" [value]="method.id">
+            {{ method.name }}
+        </label>
+    </div>
+
+
     <p>
         {{ f.value | json }}
     </p>

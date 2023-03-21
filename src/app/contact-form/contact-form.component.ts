@@ -11,6 +11,12 @@ export class ContactFormComponent {
     { id: 1, name: 'Email' },
     { id: 2, name: 'Phone' },
   ]
+
+  contactMethodRadio = [
+    { id: 1, name: 'Email' },
+    { id: 2, name: 'Phone' },
+  ]
+
   log(x: NgModel) {
     console.log(x)
   }
