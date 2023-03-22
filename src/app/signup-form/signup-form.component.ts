@@ -10,7 +10,7 @@ import { UsernameValidators } from './username.validators';
 export class SignupFormComponent {
   form = new FormGroup(
     {
-      username: new FormControl('', [Validators.required, Validators.minLength(5), UsernameValidators.cannotContainSpace]),
+      username: new FormControl('', Validators.required, UsernameValidators.shouldBeUnique),
       password: new FormControl('', Validators.required),
     }
   );
