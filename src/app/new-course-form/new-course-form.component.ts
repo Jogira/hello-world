@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms'
+import { FormGroup, FormArray, FormControl, AbstractControl, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'new-course-form',
@@ -7,9 +7,30 @@ import { FormGroup, FormArray, FormControl } from '@angular/forms'
   styleUrls: ['./new-course-form.component.css']
 })
 export class NewCourseFormComponent implements OnInit {
-  form = new FormGroup({
-    topics: new FormArray([])
-  })
+
+  form;
+  // form = new FormGroup({
+  //   name: new FormControl('', Validators.required),
+  //   contact: new FormGroup({
+  //     email: new FormControl(),
+  //     phone: new FormControl()
+  //   }),
+  //   topics: new FormArray([])
+  // })
+
+
+
+  //THIS can substitute all of the code from above.
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      name: ['', Validators.required],
+      contact: fb.group({
+        email: [],
+        phone: []
+      }),
+      topics: fb.array([])
+    });
+  }
 
 
   categories = [
@@ -18,12 +39,16 @@ export class NewCourseFormComponent implements OnInit {
     { id: 3, name: 'Languages' },
   ];
 
-  constructor() { }
 
   addTopic(topic: HTMLInputElement) {
     // (this.form.get('topics') as FormArray).push(new FormControl(topic.value));
     this.topics.push(new FormControl(topic.value));
     topic.value = '';
+  }
+
+  removeTopic(topic: AbstractControl) {
+    let index = this.topics.controls.indexOf(topic);
+    this.topics.removeAt(index);
   }
 
   get topics() {
