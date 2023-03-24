@@ -9,6 +9,7 @@ import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
 import { AuthorsComponent } from './authors/authors.component';
+import { PostService } from './services/post.service';
 import { AuthorsService } from './authors.service';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
@@ -46,7 +47,7 @@ import { PostsComponent } from './posts/posts.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CoursesService, AuthorsService],
+  providers: [CoursesService, AuthorsService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
