@@ -1,45 +1,16 @@
-import { BadInput } from './../common/bad-input';
-import { NotFoundError } from './../common/not-found-error';
-import { catchError } from 'rxjs/operators';
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
-import { AppError } from '../common/app-error';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
-  private url = "https://jsonplaceholder.typicode.com/posts";
+export class PostService extends DataService {
+  // private url = "https://jsonplaceholder.typicode.com/posts";
 
-  constructor(private http: HttpClient) { }
-
-  getPosts() {
-    return this.http.get(this.url);
+  constructor(http: HttpClient) {
+    super("https://jsonplaceholder.typicode.com/posts", http);
   }
 
-  createPost(post: any) {
-    return this.http.post(this.url, JSON.stringify(post))
-      .pipe(catchError((error: Response) => {
-        if (error.status === 400) {
-          return throwError(new BadInput(error.json()));
-        }
-        return throwError(new AppError(error));
-      }));
-  }
-
-  updatePost(post: any) {
-    return this.http.patch(this.url + "/" + post.id, JSON.stringify({ isRead: true }))
-  }
-
-  deletePost(id: any) {
-    return this.http.delete(this.url + '/' + id)
-      .pipe(catchError((error: Response) => {
-        if (error.status === 404) {
-          return throwError(new NotFoundError());
-        }
-        return throwError(new AppError(error));
-      }));
-
-  }
 }
