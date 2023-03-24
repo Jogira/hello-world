@@ -1,3 +1,4 @@
+import { throwError } from 'rxjs';
 import { BadInput } from './../common/bad-input';
 import { NotFoundError } from './../common/not-found-error';
 import { AppError } from './../common/app-error';
@@ -23,9 +24,6 @@ export class PostsComponent implements OnInit {
       response => {
         // console.log(response);
         this.posts = response;
-      }, error => {
-        alert('An unexpected error occured.');
-        console.log(error);
       });
   }
 
@@ -45,8 +43,7 @@ export class PostsComponent implements OnInit {
         // this.form.setErrors(error.originalError);
       }
       else {
-        alert('An unexpected error occured.');
-        console.log(error);
+        throw error;
       }
     });
   }
@@ -55,9 +52,6 @@ export class PostsComponent implements OnInit {
     this.service.updatePost(post).subscribe(
       response => {
         console.log(response)
-      }, error => {
-        alert('An unexpected error occured.');
-        console.log(error);
       });
     // this.http.put(this.url, JSON.stringify(post));
 
@@ -73,7 +67,7 @@ export class PostsComponent implements OnInit {
           alert('This post has already been deleted.');
         }
         else {
-          alert('An unexpected error occured.');
+          throw error;
         }
         console.log(error);
       });
