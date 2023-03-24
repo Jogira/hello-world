@@ -45,7 +45,7 @@ import { PostsComponent } from './posts/posts.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [CoursesService, AuthorsService, PostService],
   bootstrap: [AppComponent]
