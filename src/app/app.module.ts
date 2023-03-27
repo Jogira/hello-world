@@ -30,6 +30,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './posts/posts.component';
 import { RouterModule } from '@angular/router';
+import { ArchiveComponent } from './archive/archive.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     NotFoundComponent,
     GithubProfileComponent,
-    NavbarComponent
+    NavbarComponent, 
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
+      { path: 'archive/:year/:month', component: ArchiveComponent },
       { path: '', component: HomeComponent },
       { path: 'followers/:id/:username', component: GithubProfileComponent },
       { path: 'followers', component: GithubFollowersComponent },

@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GithubFollowersService } from '../services/github-followers.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable, combineLatest } from 'rxjs';
@@ -14,7 +14,18 @@ export class GithubFollowersComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: GithubFollowersService) { }
+    private service: GithubFollowersService,
+    private router: Router) { }
+
+
+  submit() {
+    this.router.navigate(['/followers'],
+      {
+        queryParams: { page: 1, order: 'newest' }
+      })
+  }
+
+
 
   ngOnInit() {
 
@@ -22,15 +33,15 @@ export class GithubFollowersComponent implements OnInit {
       this.route.paramMap,
       this.route.queryParamMap
     ])
-    .pipe(switchMap((combined: any) => {
-      let id = combined[0].get('id');
-      let page = combined[1].get('page');
+      .pipe(switchMap((combined: any) => {
+        let id = combined[0].get('id');
+        let page = combined[1].get('page');
 
-      return this.service.getAll()
-      // .subscribe((followers: any) => this.followers = followers);
-    }))
-    .subscribe((followers: any) => this.followers = followers)
-    
+        return this.service.getAll()
+        // .subscribe((followers: any) => this.followers = followers);
+      }))
+      .subscribe((followers: any) => this.followers = followers)
+
 
 
 
