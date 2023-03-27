@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 
 
