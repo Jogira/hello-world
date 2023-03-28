@@ -2,6 +2,8 @@
 This project was done following a Code with Mosh course found here: https://codewithmosh.com/p/angular-crash-course
 It is a crash course on all things Angular, so I can have a good basis on Angular before moving onto a full scale project. 
 
+This is not an app with a single particular use, but rather a sandbox where I made various elements using Angular.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
 
 ## Development server
